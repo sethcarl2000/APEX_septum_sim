@@ -1,0 +1,51 @@
+# Macro file for run on one of the sieves 
+# 
+# Can be run in batch, without graphic
+# or interactively: Idle> /control/execute run1.mac
+#
+# Change the default number of workers (in multi-threading mode) 
+/run/numberOfThreads 1
+
+# Set verbosity 
+/control/verbose 0
+/run/verbose 0
+/event/verbose 0
+/tracking/verbose 0
+/generator/verbose 0
+#
+# specify whether sieve should be built
+/detector/build_sieve true
+
+# specify if all particle types should be saved
+/global/save_all_particle_types false 
+
+#### Set some parameters of the particle generator ####
+#
+# mode of generation
+/generator/mode all_types
+#
+/generator/sampling_mode rejection
+#
+# vertical raster amplitude
+/generator/raster_amplitude 2 mm
+#
+# specify target
+/generator/target V1
+
+
+# specify minimum and maximum momentum to be written to file 
+/global/min_momentum 1000 MeV
+/global/max_momentum 1200 MeV
+
+# specify which arm to use  
+/global/active_arm RHRS
+
+# specify output file
+/global/path_outfile data/test_mem.root
+
+
+# Start the run 
+/run/initialize
+/run/beamOn 4000
+
+
